@@ -83,6 +83,10 @@ public class BootstrapController extends RunLoopProcess  {
 		this.currentSchemaID = schemaID;
 	}
 
+	public void pollNow() {
+		this.interrupt();
+	}
+
 	private List<BootstrapTask> getIncompleteTasks() throws SQLException {
 		ArrayList<BootstrapTask> list = new ArrayList<>();
 		try ( Connection cx = maxwellConnectionPool.getConnection() ) {
